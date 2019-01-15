@@ -1,7 +1,7 @@
 require 'transactions'
 
 describe Transactions do
-  let(:transactions) { described_class.new(200) }
+  let(:transactions) { described_class.new(0) }
 
   describe '#credit' do
     before(:each) do
@@ -12,15 +12,22 @@ describe Transactions do
       expect(transactions.type).to eq('credit')
     end
 
-    it 'stores the transactions value in a balance' do
-      expect(transactions.balance).to eq(500)
+    it 'stores the credit as a plus value in a balance' do
+      expect(transactions.balance).to eq(300)
     end
   end
 
   describe '#debit' do
     it 'stores transactions as debits' do
-      transactions.debit
+      transactions.credit(200)
+      transactions.debit(100)
       expect(transactions.type).to eq('debit')
+    end
+
+    it 'stores the debit as a minus value in a balance' do
+      transactions.credit(200)
+      transactions.debit(100)
+      expect(transactions.balance).to eq(100)
     end
   end
 end

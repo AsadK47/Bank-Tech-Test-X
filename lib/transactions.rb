@@ -11,8 +11,9 @@ class Transactions
     add_to_balance(money)
   end
 
-  def debit
+  def debit(money)
     type_is_debit
+    @balance -= money
   end
 
   private
