@@ -1,7 +1,7 @@
 class Transactions
   attr_reader :type, :balance, :amount, :date
 
-  def initialize(balance, date = Time.now.strftime('%d/%m/%Y'))
+  def initialize(balance, date = formatted_date)
     @type
     @balance = balance
     @date = date
@@ -39,5 +39,9 @@ class Transactions
 
   def store_amount(money)
     @amount = money
+  end
+
+  def formatted_date
+    Time.now.strftime('%d/%m/%Y')
   end
 end
