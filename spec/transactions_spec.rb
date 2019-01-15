@@ -9,4 +9,11 @@ describe Transactions do
       expect(transactions.type).to eq('credit')
     end
   end
+
+  describe '#debit' do
+    it 'stores transactions as debits' do
+      transactions.debit
+      expect(transactions.type).to eq('debit')
+    end
+  end
 end

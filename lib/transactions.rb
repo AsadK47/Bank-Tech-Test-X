@@ -9,6 +9,10 @@ class Transactions
     type_is_credit
   end
 
+  def debit
+    @type = 'debit'
+  end
+
   private
 
   def type_is_credit
