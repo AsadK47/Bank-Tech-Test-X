@@ -8,12 +8,12 @@ class Transactions
 
   def credit(money)
     type_is_credit
-    add_to_balance(money)
+    increase_balance(money)
   end
 
   def debit(money)
     type_is_debit
-    @balance -= money
+    reduce_balance(money)
   end
 
   private
@@ -22,11 +22,15 @@ class Transactions
     @type = 'credit'
   end
 
-  def add_to_balance(money)
+  def increase_balance(money)
     @balance += money
   end
 
   def type_is_debit
     @type = 'debit'
+  end
+
+  def reduce_balance(money)
+    @balance -= money
   end
 end
