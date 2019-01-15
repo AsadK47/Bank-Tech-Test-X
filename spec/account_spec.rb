@@ -24,12 +24,19 @@ describe Account do
   end
 
   describe '#withdraw' do
-    it 'allows users to withdraw money' do
+    before(:each) do
       allow(transactions).to receive(:debit).with(500)
       allow(transactions).to receive(:balance).and_return(500)
       account.deposit(1000, transactions)
       account.withdraw(500, transactions)
+    end
+    
+    it 'allows users to withdraw money' do
       expect(account.balance).to eq(500)
+    end
+
+    it 'stores the transaction' do
+      expect(account.statements.list).to include transactions
     end
   end
 end

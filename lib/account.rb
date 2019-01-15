@@ -21,6 +21,7 @@ class Account
     withdrawal_transaction = with_transaction
     withdrawal_transaction.debit(money)
     new_balance(withdrawal_transaction.balance)
+    statements.add(withdrawal_transaction)
   end
 
   private
