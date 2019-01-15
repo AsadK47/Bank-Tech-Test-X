@@ -15,6 +15,7 @@ class Transactions
   def debit(money)
     type_is_debit
     reduce_balance(money)
+    @amount = money
   end
 
   private
