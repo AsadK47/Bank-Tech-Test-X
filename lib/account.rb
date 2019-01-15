@@ -10,6 +10,10 @@ class Account
     add_money_to_balance(money)
   end
 
+  def withdraw(money)
+    @balance -= money
+  end
+
   private
 
   def add_money_to_balance(money)
