@@ -2,7 +2,6 @@ class Transactions
   attr_reader :type, :balance, :amount, :date
 
   def initialize(balance, date = formatted_date)
-    @type
     @balance = balance
     @date = date
   end

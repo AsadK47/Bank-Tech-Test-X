@@ -2,10 +2,10 @@
 
 source 'https://rubygems.org'
 
+gem 'pry'
 gem 'rake'
 gem 'rubocop', '0.56.0'
 gem 'timecop'
-gem 'pry'
 
 group :test do
   gem 'capybara'
