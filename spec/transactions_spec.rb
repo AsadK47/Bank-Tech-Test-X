@@ -3,6 +3,10 @@ require 'transactions'
 describe Transactions do
   let(:transactions) { described_class.new(0) }
 
+  it 'holds a date for each transaction' do
+    expect(transactions.date).to eq(Time.now.strftime('%d/%m/%Y'))
+  end
+
   describe '#credit' do
     before(:each) do
       transactions.credit(300)
