@@ -1,12 +1,14 @@
 class Transactions
-  attr_reader :type
+  attr_reader :type, :balance
 
-  def initialize
+  def initialize(balance)
     @type
+    @balance = balance
   end
 
-  def credit
+  def credit(money)
     type_is_credit
+    @balance += money
   end
 
   def debit
