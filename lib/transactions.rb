@@ -9,7 +9,7 @@ class Transactions
   def credit(money)
     type_is_credit
     increase_balance(money)
-    @amount = money
+    store_amount(money)
   end
 
   def debit(money)
@@ -25,6 +25,10 @@ class Transactions
 
   def increase_balance(money)
     @balance += money
+  end
+
+  def store_amount(money)
+    @amount = money
   end
 
   def type_is_debit
