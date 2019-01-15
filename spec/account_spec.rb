@@ -10,9 +10,16 @@ describe Account do
   end
 
   describe '#deposit' do
-    it 'allows users to deposit money' do
+    before(:each) do
       account.deposit(1000, transactions)
+    end
+
+    it 'allows users to deposit money' do
       expect(account.balance).to eq(1000)
+    end
+
+    it 'stores the transaction' do
+      expect(account.statements.list).to include transactions
     end
   end
 

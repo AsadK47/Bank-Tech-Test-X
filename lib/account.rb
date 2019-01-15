@@ -1,17 +1,20 @@
 require_relative 'transactions'
+require_relative 'statements'
 
 class Account
-  attr_reader :balance
+  attr_reader :balance, :statements
   DEFAULT_BALANCE = 0
 
   def initialize(balance = DEFAULT_BALANCE)
     @balance = balance
+    @statements = Statements.new
   end
 
   def deposit(money, dep_transaction = Transactions.new(@balance))
     deposit_transaction = dep_transaction
     deposit_transaction.credit(money)
     new_balance(deposit_transaction.balance)
+    statements.add(deposit_transaction)
   end
 
   def withdraw(money, with_transaction = Transactions.new(@balance))
