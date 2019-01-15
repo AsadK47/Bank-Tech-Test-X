@@ -15,6 +15,10 @@ describe Transactions do
     it 'stores the credit as a plus value in a balance' do
       expect(transactions.balance).to eq(300)
     end
+
+    it 'stores the transaction amount' do
+      expect(transactions.amount).to eq(300)
+    end
   end
 
   describe '#debit' do

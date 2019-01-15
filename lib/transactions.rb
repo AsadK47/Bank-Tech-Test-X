@@ -1,5 +1,5 @@
 class Transactions
-  attr_reader :type, :balance
+  attr_reader :type, :balance, :amount
 
   def initialize(balance)
     @type
@@ -9,6 +9,7 @@ class Transactions
   def credit(money)
     type_is_credit
     increase_balance(money)
+    @amount = money
   end
 
   def debit(money)
