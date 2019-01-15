@@ -6,6 +6,12 @@ class Transactions
   end
 
   def credit
+    type_is_credit
+  end
+
+  private
+
+  def type_is_credit
     @type = 'credit'
   end
 end
