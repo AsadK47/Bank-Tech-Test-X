@@ -8,7 +8,7 @@ class Transactions
 
   def credit(money)
     type_is_credit
-    @balance += money
+    add_to_balance(money)
   end
 
   def debit
@@ -19,6 +19,10 @@ class Transactions
 
   def type_is_credit
     @type = 'credit'
+  end
+
+  def add_to_balance(money)
+    @balance += money
   end
 
   def type_is_debit
