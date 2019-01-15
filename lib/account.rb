@@ -1,3 +1,5 @@
+require_relative 'transactions'
+
 class Account
   attr_reader :balance
   DEFAULT_BALANCE = 0
@@ -6,12 +8,16 @@ class Account
     @balance = balance
   end
 
-  def deposit(money)
-    add_money_to_balance(money)
+  def deposit(money, dep_transaction = Transactions.new(@balance))
+    deposit_transaction = dep_transaction
+    deposit_transaction.credit(money)
+    @balance = deposit_transaction.balance
   end
 
-  def withdraw(money)
-    subtract_money_from_balance(money)
+  def withdraw(money, with_transaction = Transactions.new(@balance))
+    withdrawal_transaction = with_transaction
+    withdrawal_transaction.debit(money)
+    @balance = withdrawal_transaction.balance
   end
 
   private
