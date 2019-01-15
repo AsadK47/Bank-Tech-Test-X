@@ -11,12 +11,16 @@ class Account
   end
 
   def withdraw(money)
-    @balance -= money
+    subtract_money_from_balance(money)
   end
 
   private
 
   def add_money_to_balance(money)
     @balance += money
+  end
+
+  def subtract_money_from_balance(money)
+    @balance -= money
   end
 end
