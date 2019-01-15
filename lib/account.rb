@@ -7,6 +7,12 @@ class Account
   end
 
   def deposit(money)
+    add_money_to_balance(money)
+  end
+
+  private
+
+  def add_money_to_balance(money)
     @balance += money
   end
 end
