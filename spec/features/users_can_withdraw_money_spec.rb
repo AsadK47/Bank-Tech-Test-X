@@ -1,4 +1,4 @@
-describe 'Users can withdraw money' do
+describe 'Feature - Users can withdraw money' do
   let(:account) { Account.new }
 
   it 'allows money to be withdrawn' do
