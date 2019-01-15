@@ -18,15 +18,16 @@ describe Transactions do
   end
 
   describe '#debit' do
-    it 'stores transactions as debits' do
+    before(:each) do
       transactions.credit(200)
       transactions.debit(100)
+    end
+
+    it 'stores transactions as debits' do
       expect(transactions.type).to eq('debit')
     end
 
     it 'stores the debit as a minus value in a balance' do
-      transactions.credit(200)
-      transactions.debit(100)
       expect(transactions.balance).to eq(100)
     end
   end
