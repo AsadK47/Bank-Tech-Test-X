@@ -15,7 +15,7 @@ class Transactions
   def debit(money)
     type_is_debit
     reduce_balance(money)
-    @amount = money
+    store_amount(money)
   end
 
   private
@@ -28,15 +28,15 @@ class Transactions
     @balance += money
   end
 
-  def store_amount(money)
-    @amount = money
-  end
-
   def type_is_debit
     @type = 'debit'
   end
 
   def reduce_balance(money)
     @balance -= money
+  end
+
+  def store_amount(money)
+    @amount = money
   end
 end
