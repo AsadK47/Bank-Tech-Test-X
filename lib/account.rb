@@ -5,9 +5,9 @@ class Account
   attr_reader :balance, :statements
   DEFAULT_BALANCE = 0
 
-  def initialize(balance = DEFAULT_BALANCE)
+  def initialize(balance = DEFAULT_BALANCE, statements = Statements.new)
     @balance = balance
-    @statements = Statements.new
+    @statements = statements
   end
 
   def deposit(money, dep_transaction = Transactions.new(@balance))

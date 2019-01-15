@@ -35,7 +35,7 @@ describe Account do
       expect(account.balance).to eq(500)
     end
 
-    it 'stores the transaction' do 
+    it 'stores the transaction' do
       expect(account.statements.list).to include transactions
     end
   end
