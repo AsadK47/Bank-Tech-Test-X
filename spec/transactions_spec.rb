@@ -4,13 +4,15 @@ describe Transactions do
   let(:transactions) { described_class.new(200) }
 
   describe '#credit' do
-    it 'stores transactions as credits' do
+    before(:each) do
       transactions.credit(300)
+    end
+
+    it 'stores transactions as credits' do
       expect(transactions.type).to eq('credit')
     end
 
     it 'stores the transactions value in a balance' do
-      transactions.credit(300)
       expect(transactions.balance).to eq(500)
     end
   end
