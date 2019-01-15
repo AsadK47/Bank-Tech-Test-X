@@ -19,9 +19,11 @@ class Statements
       header += add_transaction_date(transaction)
       header += add_credit_transaction(transaction)
       header += add_debit_transaction(transaction)
-      header += " #{transaction.balance}"
+      header += " #{format('%.2f', transaction.balance)}"
     end
+
     return header
+    
   end
 
   private
@@ -32,7 +34,7 @@ class Statements
 
   def add_credit_transaction(transaction)
     if "#{transaction.type}" == 'credit'
-      "#{transaction.amount} || "
+      "#{format('%.2f', transaction.amount)} || "
     else
       "|| "
     end
@@ -40,7 +42,7 @@ class Statements
 
   def add_debit_transaction(transaction)
     if "#{transaction.type}" == 'debit'
-      "#{transaction.amount} ||"
+      "#{format('%.2f', transaction.amount)} ||"
     else
       "||"
     end

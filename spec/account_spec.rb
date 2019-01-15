@@ -30,12 +30,12 @@ describe Account do
       account.deposit(1000, transactions)
       account.withdraw(500, transactions)
     end
-    
+
     it 'allows users to withdraw money' do
       expect(account.balance).to eq(500)
     end
 
-    it 'stores the transaction' do
+    it 'stores the transaction' do 
       expect(account.statements.list).to include transactions
     end
   end
