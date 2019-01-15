@@ -16,17 +16,34 @@ class Statements
 
     @list.each do |transaction|
       header += "\n"
-      header += "#{transaction.date} || "
-      if "#{transaction.type}" == 'credit'
-        header += "#{transaction.amount} || ||"
-      elsif "#{transaction.type}" == 'debit'
-        header += "|| #{transaction.amount} ||"
-      else
-        "|| "
-      end
+      header += add_transaction_date(transaction)
+      header += add_credit_transaction(transaction)
+      header += add_debit_transaction(transaction)
       header += " #{transaction.balance}"
     end
     return header
+  end
+
+  private
+
+  def add_transaction_date(transaction)
+    "#{transaction.date} || "
+  end
+
+  def add_credit_transaction(transaction)
+    if "#{transaction.type}" == 'credit'
+      "#{transaction.amount} || "
+    else
+      "|| "
+    end
+  end
+
+  def add_debit_transaction(transaction)
+    if "#{transaction.type}" == 'debit'
+      "#{transaction.amount} ||"
+    else
+      "||"
+    end
   end
 
 end
