@@ -26,11 +26,16 @@ You'll work alone, and you'll also review your own code so you can practice refl
 **Then** she would see
 
 ```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
+date       || credit  || debit  || balance
+14/01/2012 ||         || 500.00 || 2500.00
+13/01/2012 || 2000.00 ||        || 3000.00
+10/01/2012 || 1000.00 ||        || 1000.00
 ```
+
+## Purpose
+
+The purpose of this exercise was to show a through application of the TDD approach. The commit history demonstrates this by showing that a test was created before each implementation and then refactored. It was extremely fun and I hope to be able to more like this in the future as I definitely want the practice!
+
 ## Running the tests & linter
 
 Once the repo is forked or cloned, cd into it and run the ```rspec``` command from the command line
@@ -47,13 +52,14 @@ require './lib/account.rb'
 Carry out the following in the command line after requiring is successful
 ```
 account = Account.new
+
 account.deposit(1000)
 account.withdraw(500)
 account.withdraw(200)
 
-account.print_out
+account.print_statement
 ```
 
 ## Screenshot of app in action
 
-![](assets/README-a05692cc.png)
+![](assets/README-7f40d128.png)
