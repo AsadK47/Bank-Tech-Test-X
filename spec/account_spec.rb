@@ -3,6 +3,7 @@ require 'account'
 describe Account do
   let(:account) { described_class.new }
   let(:transactions) { double :transactions }
+  let(:statements) { double :statements }
 
   before(:each) do
     allow(transactions).to receive(:credit).with(1000)
@@ -38,5 +39,11 @@ describe Account do
     it 'stores the transaction' do
       expect(account.statements.list).to include transactions
     end
+
+    it 'raises error if withdraw amount is greater than balance' do
+      expect{ account.withdraw(600, transactions) }.to raise_error 'Warning: Balance is too low, please deposit first'
+    end
   end
+
+
 end

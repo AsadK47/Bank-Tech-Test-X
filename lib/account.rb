@@ -18,6 +18,7 @@ class Account
   end
 
   def withdraw(money, with_transaction = Transactions.new(@balance))
+    raise 'Warning: Balance is too low, please deposit first' if money > balance
     withdrawal_transaction = with_transaction
     withdrawal_transaction.debit(money)
     new_balance(withdrawal_transaction.balance)
