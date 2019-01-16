@@ -25,6 +25,10 @@ class Account
     statements.add(withdrawal_transaction)
   end
 
+  def print_statement
+    @statements.print_out
+  end
+
   private
 
   def new_balance(money)

@@ -1,11 +1,13 @@
 require 'account'
 
 describe Account do
-  let(:account) { described_class.new }
   let(:transactions) { double :transactions }
   let(:statements) { double :statements }
+  subject(:account) { described_class.new(transactions, statements) }
+
 
   before(:each) do
+    allow(statements).to receive(:add)
     allow(transactions).to receive(:credit).with(1000)
     allow(transactions).to receive(:balance).and_return(1000)
   end
@@ -20,7 +22,7 @@ describe Account do
     end
 
     it 'stores the transaction' do
-      expect(account.statements.list).to include transactions
+      account.deposit(1000, transactions)
     end
   end
 
@@ -37,7 +39,7 @@ describe Account do
     end
 
     it 'stores the transaction' do
-      expect(account.statements.list).to include transactions
+      account.deposit(1000, transactions)
     end
 
     it 'raises error if withdraw amount is greater than balance' do
@@ -45,5 +47,10 @@ describe Account do
     end
   end
 
-
+  describe '#print_statement' do
+    it 'can print a statement' do
+      expect(statements).to receive(:print_out)
+      account.print_statement
+    end
+  end
 end

@@ -31,9 +31,11 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
-## Running the tests
+## Running the tests & linter
 
 Once the repo is forked or cloned, cd into it and run the ```rspec``` command from the command line
+
+To run the linter, please run ```rubocop``` from the command line
 
 ## Running the app
 
@@ -49,7 +51,7 @@ account.deposit(1000)
 account.withdraw(500)
 account.withdraw(200)
 
-account.statements.print_out
+account.print_out
 ```
 
 ## Screenshot of app in action
