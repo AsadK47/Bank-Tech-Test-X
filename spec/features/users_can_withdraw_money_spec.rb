@@ -4,6 +4,6 @@ describe 'Feature - Users can withdraw money' do
   it 'allows money to be withdrawn' do
     account.deposit(1000)
     account.withdraw(500)
-    expect(account.balance).to eq(500)
+    expect { account.withdraw(200) }.not_to raise_error
   end
 end

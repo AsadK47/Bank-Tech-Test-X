@@ -22,8 +22,7 @@ class Statements
       header += " #{format('%.2f', transaction.balance)}"
     end
 
-    return header
-    
+    puts header
   end
 
   private

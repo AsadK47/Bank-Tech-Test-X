@@ -30,7 +30,9 @@ describe Statements do
       allow(transactions_2).to receive(:balance).and_return('500.00')
       statements.add(transactions_2)
 
-      expect(statements.print_out).to eq("date || credit || debit || balance\n15/01/2019 || || 500.00 || 500.00\n15/01/2019 || 1000.00 || || 1000.00")
+      expect { statements.print_out }.to output("date || credit || debit || balance\n"\
+        "15/01/2019 || || 500.00 || 500.00\n"\
+        "15/01/2019 || 1000.00 || || 1000.00\n").to_stdout 
     end
   end
 end
