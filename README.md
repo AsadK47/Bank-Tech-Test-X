@@ -62,4 +62,4 @@ account.print_statement
 
 ## Screenshot of app in action
 
-![](assets/README-7f40d128.png)
+![](assets/README-b8e1eefb.png)
