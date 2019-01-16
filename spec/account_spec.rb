@@ -5,7 +5,6 @@ describe Account do
   let(:statements) { double :statements }
   subject(:account) { described_class.new(transactions, statements) }
 
-
   before(:each) do
     allow(statements).to receive(:add)
     allow(transactions).to receive(:credit).with(1000)
@@ -43,7 +42,7 @@ describe Account do
     end
 
     it 'raises error if withdraw amount is greater than balance' do
-      expect{ account.withdraw(600, transactions) }.to raise_error 'Warning: Balance is too low, please deposit first'
+      expect { account.withdraw(600, transactions) }.to raise_error 'Warning: Balance is too low, please deposit first'
     end
   end
 
